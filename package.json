@@ -1,0 +1,24 @@
+{
+  "name": "shopifybackend",
+  "version": "1.0.0",
+  "description": "ShopifyBackend",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srikant33/Shopifybackend.git"
+  },
+  "author": "Kasiviswanathan Srikant Iyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Srikant33/Shopifybackend/issues"
+  },
+  "homepage": "https://github.com/Srikant33/Shopifybackend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4"
+  }
+}
