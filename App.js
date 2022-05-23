@@ -4,12 +4,17 @@ const mongoose = require('mongoose');
 const { MongoDB } = require('./config');
 const ItemModel = require('./src/obj')
 
+app.set ('view engine','ejs');
+
 mongoose.connect(MongoDB)
 .then(()=> 
 app.listen(3000)
 )
 .catch(()=>console.log("error"));
 
+app.get('/',(req,res) => {
+    res.redirect('/all-items');
+});
 
 app.get('/add-item',(req,res) => { 
     const item = new ItemModel({
@@ -25,7 +30,7 @@ app.get('/add-item',(req,res) => {
 
 app.get('/all-items',(req,res) => {
     ItemModel.find()
-    .then((result) => res.send(result))
+    .then((result) =>  res.render('index', {items:result ,page:'Shopify Inventory'} ))
     .catch((err) => {console.log(err)});
  });
 
