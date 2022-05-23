@@ -23,4 +23,9 @@ app.get('/add-item',(req,res) => {
     .catch((err) => {console.log(err)});
 });
 
-app.listen(3000);
+app.get('/all-items',(req,res) => {
+    ItemModel.find()
+    .then((result) => res.send(result))
+    .catch((err) => {console.log(err)});
+ });
+
