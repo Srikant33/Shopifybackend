@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <%- include("./partials/styles.ejs") %>
+</head>
+<body>
+
+    <%- include("./partials/nav.ejs") %>
+  
+  <div class="create-item content">
+    <form action="/add-item" method="POST">
+
+      <label for="title">Item Name:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="snippet">Item description:</label>
+      <textarea id="description" name="description" required></textarea>      
+
+      <label for="snippet">Item quantity:</label>
+      <input type="text" id="quantity" name="quantity" required>
+
+      <label for="snippet">Warehouse location:</label>
+      <input type="text" id="warehouse_location" name="warehouse_location" required>
+
+      <button>Submit</button>
+    </form>
+  </div>
+
+
+</body>
+</html>

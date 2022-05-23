@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <%- include("./partials/styles.ejs") %>
+    </head>
+    <body>
+        <%- include("./partials/nav.ejs") %>
+        <% if (items.length > 0) { %>
+            <% items.forEach(item => { %>
+             <div class='item'>
+             <button class="delete" data-doc="<%= item._id %>" onclick="myFunction()">delete</button>
+              <a class="single" href="/edit/<%= item._id %>">edit</a>
+              <h3 class="title"><%= item.title %></h3>
+              <p class="detail"><%= item.description %></p>
+              <p class="detail"><%= item.quantity %></p>
+              <p class="detail"><%= item.warehouse_location %></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>No items in the inventory..Do you want to add items?</p>
+          <% } %>
+    </body>
+    <script>
+        const trash = document.querySelector('button.delete');
+        function myFunction(){
+            let comments = prompt('Type here');
+ 
+            console.log("clicked");
+
+                 const endpoint = `/delete/${trash.dataset.doc}/${comments}`;
+          fetch(endpoint, {
+            method: 'DELETE',
+          })
+          .then(response => console.log("done"))
+          .then(data => location.reload())
+          .catch(err => console.log(err));
+        }
+        
+      </script>
+
+</html>

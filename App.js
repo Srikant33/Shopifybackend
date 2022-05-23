@@ -14,7 +14,7 @@ app.set ('view engine','ejs');
 
 mongoose.connect(MongoDB)
 .then(()=> 
-app.listen(3000)
+app.listen(3004)
 )
 .catch(()=>console.log("error"));
 
@@ -27,7 +27,8 @@ app.post('/add-item',(req,res) => {
 
     const item = new ItemModel(req.body);
     item.save()
-    then((result) => res.redirect('/all-items'))    .catch((err) => {console.log(err)});
+    .then((result) => res.redirect('/all-items'))    
+    .catch((err) => {console.log(err)});
 });
 
 app.get('/edit/:id', (req, res) => {

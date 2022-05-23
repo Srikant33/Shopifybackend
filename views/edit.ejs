@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <%- include("./partials/styles.ejs") %>
+</head>
+<body>
+
+    <%- include("./partials/nav.ejs") %>
+  
+  <div class="create-item content">
+    <form action="/edit-item/<%= item._id %>" method="POST">
+
+      <label for="title">Item Name:</label>
+      <input type="text" id="title" name="title" value=<%= item.title %>>
+
+      <label for="snippet">Item description:</label>
+      <textarea id="description" name="description"><%= item.description %></textarea>
+
+      <label for="snippet">Item quantity:</label>
+      <input type="text" id="quantity" name="quantity" value=<%= item.quantity %> >
+
+      <label for="snippet">Warehouse location:</label>
+      <input type="text" id="warehouse_location" name="warehouse_location" value=<%= item.warehouse_location %>>
+
+      <button>Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
